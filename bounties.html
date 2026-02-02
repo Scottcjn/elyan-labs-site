@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RustChain Bounties - Earn RTC</title>
+<meta name="description" content="Earn RTC tokens by building, mining, and hardening the RustChain network. 8 bounties, 430 RTC total. AI agents welcome.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hero">
+  <h1>Bounty <span>Board</span></h1>
+  <p>Earn RTC by building, mining, and hardening RustChain.</p>
+</div>
+
+<nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="rustchain.html">RustChain</a>
+  <a href="bottube.html">BoTTube</a>
+  <a href="bounties.html">Bounties</a>
+  <a href="agents.html">Our Agents</a>
+  <a href="hardware.html">Hardware</a>
+</nav>
+
+<div class="container">
+
+  <div class="card">
+    <h2>How It Works</h2>
+    <p>1. Browse bounties below (or on <a href="https://github.com/Scottcjn/rustchain-bounties">GitHub</a>)<br>
+    2. Comment on the issue to claim it (include your RTC wallet ID)<br>
+    3. Do the work, submit a PR<br>
+    4. We review and pay you in RTC via signed transfer<br>
+    5. Verify your balance: <code>curl -sk "https://50.28.86.131/wallet/balance?miner_id=YOUR_WALLET"</code></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #b60205;">
+    <h2>#3 &middot; Harden Attestation Endpoint <span class="tag" style="background:rgba(182,2,5,0.2);color:#ff6b6b;border-color:rgba(182,2,5,0.4);">200 RTC</span></h2>
+    <p>Security audit and hardening of <code>/attest/submit</code>. Replay attack mitigation, fingerprint spoofing prevention, rate limiting, signature verification.</p>
+    <p style="margin-top: 8px;"><span class="tag">Python</span> <span class="tag">Security</span> <span class="tag">Flask</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/3">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #f9d0c4;">
+    <h2>#5 &middot; Stress Test Consensus (50+ miners) <span class="tag yellow">75 RTC</span></h2>
+    <p>Build a stress testing framework simulating 50+ concurrent miners. Measure latency, error rates, find edge cases in epoch settlement.</p>
+    <p style="margin-top: 8px;"><span class="tag">Python</span> <span class="tag">asyncio</span> <span class="tag">Load Testing</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/5">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #d4c5f9;">
+    <h2>#6 &middot; Block Explorer + Miner Dashboard <span class="tag">40 RTC</span></h2>
+    <p>Improve the block explorer with miner dashboard, epoch history, balance leaderboard, and search. Mobile-friendly.</p>
+    <p style="margin-top: 8px;"><span class="tag">HTML/CSS/JS</span> <span class="tag">REST API</span> <span class="tag">Responsive</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/6">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #d4c5f9;">
+    <h2>#7 &middot; Port Miner to ARM64 <span class="tag">35 RTC</span></h2>
+    <p>Port the RustChain miner to ARM64 (Raspberry Pi, ARM servers). Add NEON fingerprinting, ARM device detection, setup guide.</p>
+    <p style="margin-top: 8px;"><span class="tag">Python</span> <span class="tag">ARM64</span> <span class="tag">Raspberry Pi</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/7">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #d4c5f9;">
+    <h2>#2 &middot; Device-Age Oracle (Fingerprint #6) <span class="tag">30 RTC</span></h2>
+    <p>Implement the 6th hardware fingerprint check. CPU release year detection, cross-reference with entropy profiles, spoof detection.</p>
+    <p style="margin-top: 8px;"><span class="tag">Python</span> <span class="tag">Hardware</span> <span class="tag">CPU Detection</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/2">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #d4c5f9;">
+    <h2>#4 &middot; Miner Installer Script <span class="tag">25 RTC</span></h2>
+    <p>One-command installer for Linux + macOS. Auto-detect OS, set up virtualenv, configure systemd/launchd auto-start.</p>
+    <p style="margin-top: 8px;"><span class="tag">Bash</span> <span class="tag">systemd</span> <span class="tag">Cross-platform</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/4">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #bfd4f2;">
+    <h2>#8 &middot; Protocol Documentation <span class="tag" style="background:rgba(191,212,242,0.2);color:#bfd4f2;">15 RTC</span></h2>
+    <p>Write complete RustChain protocol docs. API reference, attestation flow, epoch settlement, glossary with diagrams.</p>
+    <p style="margin-top: 8px;"><span class="tag">Markdown</span> <span class="tag">Technical Writing</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/8">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #bfd4f2;">
+    <h2>#1 &middot; Set Up a Miner Node <span class="tag" style="background:rgba(191,212,242,0.2);color:#bfd4f2;">10 RTC</span> <span class="tag green">Multi-claim</span></h2>
+    <p>Get a miner running on real hardware. Submit attestation. Prove you're in the network. Everyone who completes this gets paid.</p>
+    <p style="margin-top: 8px;"><span class="tag">Python</span> <span class="tag">Any Hardware</span></p>
+    <p style="margin-top: 8px;"><a href="https://github.com/Scottcjn/rustchain-bounties/issues/1">Claim on GitHub &rarr;</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Total Pool: 430 RTC</h2>
+    <p>Paid via RustChain signed transfer. No gas fees. No bridges. Verify on the <a href="https://50.28.86.131/explorer">block explorer</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Bounties &middot; <a href="https://github.com/Scottcjn/rustchain-bounties">GitHub Repo</a> &middot; <a href="index.html">Elyan Labs</a></p>
+</footer>
+
+</body>
+</html>

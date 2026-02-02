@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elyan Labs Hardware - 228GB VRAM Compute Fleet</title>
+<meta name="description" content="18+ GPUs, 228GB VRAM, IBM POWER8 with 512GB RAM, PowerPC Mac fleet. Built through pawn shop arbitrage and eBay datacenter pulls.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hero">
+  <h1>The <span>Hardware</span></h1>
+  <p>More dedicated compute than most colleges. $12K invested. $60K+ retail value.</p>
+</div>
+
+<nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="rustchain.html">RustChain</a>
+  <a href="bottube.html">BoTTube</a>
+  <a href="bounties.html">Bounties</a>
+  <a href="agents.html">Our Agents</a>
+  <a href="hardware.html">Hardware</a>
+</nav>
+
+<div class="container">
+
+  <div class="grid">
+    <div class="card stat">
+      <div class="num">18+</div>
+      <div class="label">GPUs</div>
+    </div>
+    <div class="card stat">
+      <div class="num">228GB+</div>
+      <div class="label">Total VRAM</div>
+    </div>
+    <div class="card stat">
+      <div class="num">512GB</div>
+      <div class="label">POWER8 RAM</div>
+    </div>
+    <div class="card stat">
+      <div class="num">3-5x</div>
+      <div class="label">ROI on Investment</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Acquisition Strategy</h2>
+    <p><strong>Pawn shops</strong> for consumer hardware. <strong>eBay datacenter decomm</strong> for enterprise GPUs. Parts cascade from upgraded machines to lab infrastructure. Nothing wasted.</p>
+    <p style="margin-top: 12px;">Examples: Ryzen 9 7950X tower for $600 (retail $1,500+). HP Victus laptop for $617 (retail $1,700). V100 32GB for ~$500 (retail $3,000+).</p>
+  </div>
+
+  <div class="card">
+    <h2>GPU Fleet</h2>
+    <pre>
+Card           VRAM    Qty   Total    Location
+─────────────────────────────────────────────────
+V100 32GB      32GB    2     64GB     C4130, Ryzen build
+V100 16GB      16GB    3     48GB     C4130 #2, builds
+RTX 5070       12GB    2     24GB     7950X tower, Ryzen 5
+RTX 4070        8GB    1      8GB     HP Victus laptop
+RTX 3060       12GB    2     24GB     Dual 3060 Ryzen
+Tesla M40      12GB    2     24GB     C4130 #1
+─────────────────────────────────────────────────
+ACTIVE TOTAL   12 GPUs       192GB VRAM
++ Bench/Reserve 6+ GPUs       36GB+ VRAM
+═════════════════════════════════════════════════
+FULL FLEET     18+ GPUs      228GB+ VRAM
+    </pre>
+    <p style="margin-top: 12px;">Plus: Hailo-8 TPU + 2x Alveo U30 FPGA</p>
+  </div>
+
+  <div class="card">
+    <h2>IBM POWER8 S824 - "Cathedral of Voltage"</h2>
+    <p>The crown jewel. Server-class PowerPC for LLM inference.</p>
+    <pre>
+CPU:      Dual 8-core POWER8 = 16 cores, 128 threads (SMT8)
+RAM:      512 GB DDR3 (2 NUMA nodes)
+Storage:  1.8 TB SAS
+GPU:      40GbE link to C4130 for matmul offload
+Peak:     147.54 tokens/sec (TinyLlama 1.1B Q4_K)
+    </pre>
+    <p style="margin-top: 12px;">Running vec_perm non-bijunctive collapse - a technique impossible on x86/ARM/CUDA. The POWER8's vec_perm instruction does 5 ops where a GPU needs 80.</p>
+  </div>
+
+  <div class="card">
+    <h2>PowerPC Mac Fleet (RustChain Miners)</h2>
+    <p>Vintage Macs mining RTC with antiquity bonuses:</p>
+    <pre>
+Machine              CPU          Multiplier   Status
+─────────────────────────────────────────────────────
+PowerBook G4 #1      G4 7450      2.5x        Mining
+PowerBook G4 #2      G4 7447      2.5x        Mining
+PowerBook G4 #3      G4 7455      2.5x        Mining
+Power Mac G4 MDD     Dual G4      2.5x        Mining
+Power Mac G5 #1      Dual 2.0 G5  2.0x        Mining
+Power Mac G5 #2      Dual 2.0 G5  2.0x        Node.js target
+Mac Mini M2          Apple M2     1.2x        Inference
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>GPU Offload Architecture</h2>
+    <p>The POWER8 and C4130 are linked via 40GbE (0.15ms latency):</p>
+    <pre>
+POWER8 S824 (512GB RAM)        C4130 (V100 + M40)
+┌─────────────────────┐        ┌──────────────────┐
+│ Model loaded in RAM │──40GbE──▶│ CUDA matmul only │
+│ PSE vec_perm active │◀────────│ 31+ TFLOPS       │
+│ 128 threads         │ 0.15ms  │ Q4_K dequant GPU │
+└─────────────────────┘         └──────────────────┘
+    </pre>
+    <p>Model stays on POWER8. Only the math goes to GPU. Supports any model that fits in 500GB RAM.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Hardware &middot; Built through pawn shop arbitrage &middot; <a href="index.html">Elyan Labs</a></p>
+</footer>
+
+</body>
+</html>

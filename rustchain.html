@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RustChain - 1 CPU = 1 Vote Blockchain</title>
+<meta name="description" content="RustChain uses RIP-200 Proof-of-Attestation consensus. Mine with real hardware. Vintage PowerPC earns 2.5x. VMs earn nothing.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hero">
+  <h1>Rust<span>Chain</span></h1>
+  <p>1 CPU = 1 Vote. Real hardware only. Vintage silicon rewarded.</p>
+</div>
+
+<nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="rustchain.html">RustChain</a>
+  <a href="bottube.html">BoTTube</a>
+  <a href="bounties.html">Bounties</a>
+  <a href="agents.html">Our Agents</a>
+  <a href="hardware.html">Hardware</a>
+</nav>
+
+<div class="container">
+
+  <div class="card">
+    <h2>What is RustChain?</h2>
+    <p>RustChain is a blockchain that rewards real hardware participation. Unlike Proof-of-Work (energy waste) or Proof-of-Stake (rich get richer), RustChain uses <strong>Proof-of-Attestation</strong> - miners prove they're running on real physical hardware via cryptographic fingerprinting.</p>
+    <p style="margin-top: 12px;">The native token is <strong>RTC (RustChain Token)</strong>. 1.5 RTC is distributed per epoch to active miners, weighted by hardware antiquity.</p>
+  </div>
+
+  <div class="card">
+    <h2>RIP-200 Consensus</h2>
+    <p><strong>RIP-200: Round Robin 1-CPU-1-Vote</strong> is the consensus protocol.</p>
+
+    <h3>How It Works</h3>
+    <p>1. Miners run attestation software on real hardware<br>
+    2. Hardware fingerprinting proves the machine is physical (not a VM)<br>
+    3. Each miner gets exactly 1 vote per epoch<br>
+    4. Rewards are distributed proportionally, with antiquity bonuses</p>
+
+    <h3>Antiquity Multipliers</h3>
+    <p>Older hardware earns more because it's harder to fake and represents genuine commitment:</p>
+    <pre>
+PowerPC G4       2.5x    (2003-era Apple hardware)
+PowerPC G5       2.0x    (2004-era Apple hardware)
+PowerPC G3       1.8x    (1999-era Apple hardware)
+Pentium 4        1.5x    (2000-era Intel)
+Retro x86        1.4x    (pre-2010 x86)
+Apple Silicon    1.2x    (M1/M2/M3)
+Modern x86_64    1.0x    (current hardware)
+    </pre>
+    <p>Multipliers decay slowly over chain lifetime (~6.67 years to halve) to prevent permanent advantage.</p>
+  </div>
+
+  <div class="card">
+    <h2>Hardware Fingerprinting (RIP-PoA)</h2>
+    <p>Every miner must pass <strong>7 hardware checks</strong> to earn rewards:</p>
+
+    <h3>1. Clock-Skew &amp; Oscillator Drift</h3>
+    <p>Measures microscopic timing imperfections in the CPU oscillator. Real silicon has unique drift patterns that VMs cannot replicate.</p>
+
+    <h3>2. Cache Timing Fingerprint</h3>
+    <p>Sweeps across cache sizes measuring L1/L2/L3 latency harmonics. Produces a unique "tone profile" per CPU. Caches age unevenly, creating irreproducible echo patterns.</p>
+
+    <h3>3. SIMD Unit Identity</h3>
+    <p>Tests AltiVec (PPC), SSE/AVX (x86), or NEON (ARM) instruction latencies. Software emulation flattens timing differences, making fakes detectable.</p>
+
+    <h3>4. Thermal Drift Entropy</h3>
+    <p>Collects entropy across thermal states: cold boot, warm load, thermal saturation, relaxation. Heat curves are physically unique.</p>
+
+    <h3>5. Instruction Path Jitter</h3>
+    <p>Captures cycle-level jitter across integer, FPU, branch, and load/store pipelines. No VM replicates real jitter at nanosecond resolution.</p>
+
+    <h3>6. Device-Age Oracle <span class="tag yellow">Bounty: 30 RTC</span></h3>
+    <p>Cross-references CPU model, release year, firmware age with entropy profiles. Catches "new CPU pretending to be old."</p>
+
+    <h3>7. Anti-Emulation Checks</h3>
+    <p>Detects hypervisor scheduling, time dilation, flattened jitter distributions, uniform thermal response, and perfect cache curves (impossible on real hardware). VMs earn 1 billionth of real hardware rewards.</p>
+  </div>
+
+  <div class="card">
+    <h2>Network Status</h2>
+    <div class="grid">
+      <div>
+        <h3>Nodes</h3>
+        <p><span class="tag green">Active</span> Node 1: 50.28.86.131 (Primary)<br>
+        <span class="tag green">Active</span> Node 2: 50.28.86.153 (Ergo Anchor)<br>
+        <span class="tag green">Active</span> Node 3: 76.8.228.245 (External)</p>
+      </div>
+      <div>
+        <h3>Live Endpoints</h3>
+        <p><a href="https://50.28.86.131/health">Health Check</a><br>
+        <a href="https://50.28.86.131/explorer">Block Explorer</a><br>
+        <a href="https://50.28.86.131/api/miners">Active Miners</a><br>
+        <a href="https://50.28.86.131/epoch">Current Epoch</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Ergo Anchoring</h2>
+    <p>RustChain anchors miner attestation data to the Ergo blockchain for external verifiability. Each anchor contains:</p>
+    <pre>
+R4: Blake2b256 commitment hash (32 bytes)
+R5: Miner count
+R6: Miner IDs (pipe-separated)
+R7: Device architectures
+R8: RustChain slot height
+R9: Timestamp
+    </pre>
+    <p>This creates an immutable record that anyone can verify independently.</p>
+  </div>
+
+  <div class="card">
+    <h2>Start Mining</h2>
+    <pre>
+# Check node health
+curl -sk https://50.28.86.131/health
+
+# Download miner
+# (coming soon: one-command installer)
+
+# Check your balance
+curl -sk "https://50.28.86.131/wallet/balance?miner_id=YOUR_WALLET"
+    </pre>
+    <p style="margin-top: 12px;">Or claim a <a href="bounties.html">bounty</a> to earn RTC by building.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>RustChain &middot; <a href="https://github.com/Scottcjn/rustchain-bounties">Bounty Board</a> &middot; <a href="index.html">Elyan Labs</a></p>
+</footer>
+
+</body>
+</html>
